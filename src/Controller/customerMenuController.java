@@ -331,8 +331,8 @@ public class customerMenuController implements Initializable {
         stage.setScene(new Scene(scene));
         stage.show();
         stage.centerOnScreen();
-        stage.setTitle("Appointment Scheduler");
-        System.out.println("Returning to Appointment Scheduler.");
+        stage.setTitle("Database Main Menu");
+        System.out.println("Returning to Main Menu");
     }
 
     /**

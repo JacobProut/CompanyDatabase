@@ -17,9 +17,10 @@ import java.util.ResourceBundle;
 
 public class mainMenuController implements Initializable {
     Stage stage;
-    Parent Scene;
+    Parent scene;
 
     @FXML private Button buttonCustomerList;
+    @FXML private Button buttonEmployeeList;
 
     @FXML
     void buttonCustomerList(ActionEvent event) throws IOException {
@@ -30,6 +31,16 @@ public class mainMenuController implements Initializable {
         stage.show();
         stage.centerOnScreen();
         stage.setTitle("List of Customers");
+    }
+    @FXML
+    void buttonEmployeeList(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(mainMenuController.class.getResource("/view/employeeMenu.fxml")));
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
+        stage.setTitle("List of Employees");
     }
 
     @Override

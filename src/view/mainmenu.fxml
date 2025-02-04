@@ -4,10 +4,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.mainMenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.mainMenuController">
    <children>
       <Text layoutX="289.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Button fx:id="buttonCustomerList" layoutX="256.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttonCustomerList" text="List of Customers" />
+      <Button fx:id="buttonEmployeeList" layoutX="256.0" layoutY="244.0" mnemonicParsing="false" onAction="#buttonEmployeeList" text="List of Employees" />
    </children>
 </Pane>

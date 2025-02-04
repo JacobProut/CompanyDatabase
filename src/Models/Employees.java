@@ -22,7 +22,7 @@ public class Employees {
     private String lastUpdatedBy;
 
 
-    public Employees(int employeeId, String employeeFirstName, String employeeLastName, String employeeAddress, String employeePostalCode, String employeePhoneNumber, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdated, String lastUpdatedBy, int divisionId, int countryId, int storeId) {
+    public Employees(int employeeId, String employeeFirstName, String employeeLastName, String employeeAddress, String employeePostalCode, String employeePhoneNumber, int divisionId, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdated, String lastUpdatedBy, int storeId, int countryId) {
         this.employeeId = employeeId;
         this.employeeFirstName = employeeFirstName;
         this.employeeLastName = employeeLastName;

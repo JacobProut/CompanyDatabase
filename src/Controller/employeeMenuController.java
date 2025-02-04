@@ -1,5 +1,6 @@
 package Controller;
 
+import DAO.EmployeesDAO;
 import DAO.JDBC;
 import Models.Employees;
 import javafx.application.Platform;
@@ -11,10 +12,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.util.Date;
@@ -31,24 +34,24 @@ public class employeeMenuController implements Initializable {
     Stage stage;
     Parent scene;
 
-    @FXML private TableView<?> employeeTableView;
     @FXML private MenuBar menuBar;
     @FXML private Menu profileMenu;
     @FXML private MenuItem profileMenuLogout;
     @FXML private TextField searchTextField;
 
-    @FXML private TableColumn<?, ?> tableEmployeeID;
-    @FXML private TableColumn<?, ?> tableFirstName;
-    @FXML private TableColumn<?, ?> tableLastName;
-    @FXML private TableColumn<?, ?> tableEmployeeAddress;
-    @FXML private TableColumn<?, ?> tableEmployeePostalCode;
-    @FXML private TableColumn<?, ?> tableEmployeePhoneNumber;
-    @FXML private TableColumn<?, ?> tableEmployeeDivisionID;
-    @FXML private TableColumn<?, ?> tableEmployeeCreatedDate;
-    @FXML private TableColumn<?, ?> tableEmployeeCreatedBy;
-    @FXML private TableColumn<?, ?> tableEmployeeLastUpdated;
-    @FXML private TableColumn<?, ?> tableEmployeeLastUpdatedBy;
-    @FXML private TableColumn<?, ?> tableEmployeeStoreId;
+    @FXML private TableView<Employees> employeeTableView;
+    @FXML private TableColumn<Employees, Integer> tableEmployeeID;
+    @FXML private TableColumn<Employees, String> tableFirstName;
+    @FXML private TableColumn<Employees, String> tableLastName;
+    @FXML private TableColumn<Employees, String> tableEmployeeAddress;
+    @FXML private TableColumn<Employees, Integer> tableEmployeePostalCode;
+    @FXML private TableColumn<Employees, String> tableEmployeePhoneNumber;
+    @FXML private TableColumn<Employees, Integer> tableEmployeeDivisionID;
+    @FXML private TableColumn<Employees, Timestamp> tableEmployeeCreatedDate;
+    @FXML private TableColumn<Employees, String> tableEmployeeCreatedBy;
+    @FXML private TableColumn<Employees, Timestamp> tableEmployeeLastUpdated;
+    @FXML private TableColumn<Employees, String> tableEmployeeLastUpdatedBy;
+    @FXML private TableColumn<Employees, Integer> tableEmployeeStoreId;
 
     @FXML private ComboBox<Employees> viewEmployeesCombo;
 
@@ -121,6 +124,22 @@ public class employeeMenuController implements Initializable {
         zoneID.setText(String.valueOf(ZoneId.systemDefault()));
         timeLabel.setText(displayCurrentTime());
         viewEmployeesCombo.setPromptText("All Employees");
+
+        //Populate TableView
+        employeeTableView.setItems(EmployeesDAO.getAllEmployees());
+        tableEmployeeID.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+        tableFirstName.setCellValueFactory(new PropertyValueFactory<>("employeeFirstName"));
+        tableLastName.setCellValueFactory(new PropertyValueFactory<>("employeeLastName"));
+        tableEmployeeAddress.setCellValueFactory(new PropertyValueFactory<>("employeeAddress"));
+        tableEmployeePostalCode.setCellValueFactory(new PropertyValueFactory<>("employeePostalCode"));
+        tableEmployeePhoneNumber.setCellValueFactory(new PropertyValueFactory<>("employeePhoneNumber"));
+        tableEmployeeDivisionID.setCellValueFactory(new PropertyValueFactory<>("divisionId"));
+        tableEmployeeCreatedDate.setCellValueFactory(new PropertyValueFactory<>("createDate"));
+        tableEmployeeCreatedBy.setCellValueFactory(new PropertyValueFactory<>("createdBy"));
+        tableEmployeeLastUpdated.setCellValueFactory(new PropertyValueFactory<>("lastUpdated"));
+        tableEmployeeLastUpdatedBy.setCellValueFactory(new PropertyValueFactory<>("lastUpdatedBy"));
+        tableEmployeeStoreId.setCellValueFactory(new PropertyValueFactory<>("storeId"));
+
     }
 
 

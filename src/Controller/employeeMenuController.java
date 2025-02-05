@@ -143,6 +143,16 @@ public class employeeMenuController implements Initializable {
     }
 
 
+    public static void returnToEmployeeViewList(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(customerMenuController.class.getResource("/view/employeeMenu.fxml")));
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
+        stage.setTitle("Employee View List");
+    }
+
         private String displayCurrentTime() {
         Thread currentTime = new Thread(() -> {
             SimpleDateFormat simpleFormat = new SimpleDateFormat("hh:mm:ss a");

@@ -21,6 +21,15 @@ public class Stores {
         this.divisionId = divisionId;
     }
 
+    public Stores(int collectedId) {
+        this.storeId = collectedId;
+    }
+
+    public Stores(int theStore, String selectedStoreAddress) {
+        this.storeId = theStore;
+        this.address = selectedStoreAddress;
+    }
+
     public int getStoreId() {
         return storeId;
     }

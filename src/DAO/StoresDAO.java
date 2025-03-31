@@ -1,7 +1,5 @@
 package DAO;
 
-import DAO.CustomersDAOUtility.CustomerConversion;
-import Models.Customers;
 import Models.Stores;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,7 +7,6 @@ import javafx.collections.ObservableList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 
 import static DAO.JDBC.createConnection;
 
@@ -39,5 +36,28 @@ public class StoresDAO {
             throw new RuntimeException(e);
         }
         return storesObservableList;
+    }
+
+
+    public static Stores getSelectedEmployeeStore(int storeId) {
+
+        try {
+            String selectedStoreId = "SELECT Store_ID, Address FROM stores WHERE Store_ID = ?";
+            PreparedStatement selectedStore = createConnection().prepareStatement(selectedStoreId);
+
+            selectedStore.setInt(1, storeId);
+            selectedStore.execute();
+
+            ResultSet selectedResults = selectedStore.getResultSet();
+            selectedResults.next();
+
+            int theStore = selectedResults.getInt("Store_ID");
+            String selectedStoreAddress = selectedResults.getString("Address");
+            return new Stores(theStore, selectedStoreAddress);
+        }
+        catch (SQLException e) {
+            System.out.println("Error with getting SELECTED Store");
+            throw new RuntimeException(e);
+        }
     }
 }

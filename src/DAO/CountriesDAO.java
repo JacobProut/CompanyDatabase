@@ -74,4 +74,25 @@ public class CountriesDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public static Countries getSelectedEmployeeCountry(int countryId) {
+        try {
+            String selectedEmployeeCountryId = "SELECT Country_ID, Country FROM countries WHERE Country_ID = ?";
+            PreparedStatement selectedCountry = createConnection().prepareStatement(selectedEmployeeCountryId);
+
+            selectedCountry.setInt(1, countryId);
+            selectedCountry.execute();
+
+            ResultSet selectedResults = selectedCountry.getResultSet();
+            selectedResults.next();
+
+            int selectedCountryId = selectedResults.getInt("Country_ID");
+            String selectedCountryName = selectedResults.getString("Country");
+            return new Countries(selectedCountryId, selectedCountryName);
+        }
+        catch (SQLException e) {
+            System.out.println("Error with getting SELECTED Employee Country");
+            throw new RuntimeException(e);
+        }
+    }
 }

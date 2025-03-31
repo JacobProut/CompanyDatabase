@@ -72,14 +72,28 @@ public class employeeMenuController implements Initializable {
         System.out.println("Opening Employee Creation Menu");
     }
 
-    @FXML
-    void deleteEmployeeButton(ActionEvent event) {
+    @FXML void deleteEmployeeButton(ActionEvent event) {
 
     }
 
-    @FXML
-    void editEmployeeButton(ActionEvent event) {
-
+    @FXML void editEmployeeButton(ActionEvent event) throws IOException {
+        if (employeeTableView.getSelectionModel().isEmpty()) {
+           // errorCode(5);
+            System.out.println("Null Selection while trying to Update a Employee.");
+        }
+        else {
+            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            FXMLLoader loadupper = new FXMLLoader(getClass().getResource("/view/employeeModificationForm.fxml"));
+            scene = loadupper.load();
+            Employees employeeSelected = employeeTableView.getSelectionModel().getSelectedItem();
+            employeeModificationFormController controller = loadupper.getController();
+            controller.employeeSelection(employeeTableView.getSelectionModel().getSelectedIndex(), employeeSelected);
+            stage.setScene(new Scene(scene));
+            stage.show();
+            stage.centerOnScreen();
+            stage.setTitle("Customer Modification Page");
+            System.out.println("Switching to Customer Modification Form.");
+        }
     }
 
     @FXML

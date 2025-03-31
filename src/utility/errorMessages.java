@@ -56,50 +56,50 @@ public abstract class errorMessages implements Initializable {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         switch (codes) {
             case 0:
-                alert.setTitle("One or more invalid fields");
-                alert.setContentText("One or more invalid fields, please check them over and try again.");
+                alert.setTitle((languageBundle.getString("MutualOneOrMoreInvalidFieldsTitle")));
+                alert.setContentText((languageBundle.getString("MutualOneOrMoreInvalidFieldsText")));
                 alert.showAndWait();
                 break;
 
             case 1: // empty name
-                alert.setTitle("Empty Name Field");
-                alert.setContentText("Please add a Name.");
+                alert.setTitle((languageBundle.getString("CustomerEmptyNameFieldTitle")));
+                alert.setContentText((languageBundle.getString("CustomerEmptyNameFieldText")));
                 alert.showAndWait();
                 break;
 
             case 2: // empty address
-                alert.setTitle("Empty Address Field");
-                alert.setContentText("Please add an Address.");
+                alert.setTitle((languageBundle.getString("MutualEmptyAddressFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualEmptyAddressFieldText")));
                 alert.showAndWait();
                 break;
 
             case 3: // empty postal
-                alert.setTitle("Empty Postal Code Field");
-                alert.setContentText("Please add a Postal Code.");
+                alert.setTitle((languageBundle.getString("MutualEmptyPostalFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualEmptyPostalFieldText")));
                 alert.showAndWait();
                 break;
 
             case 4: // empty phone
-                alert.setTitle("Empty Phone Number Field");
-                alert.setContentText("Please add a Phone number.");
+                alert.setTitle((languageBundle.getString("MutualEmptyPhoneNumberFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualEmptyPhoneNumberFieldText")));
                 alert.showAndWait();
                 break;
 
             case 5: // empty country
-                alert.setTitle("Empty Country Box");
-                alert.setContentText("Please add a Country.");
+                alert.setTitle((languageBundle.getString("MutualEmptyCountryFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualEmptyCountryFieldText")));
                 alert.showAndWait();
                 break;
 
             case 6: // empty division
-                alert.setTitle("Empty Division Box");
-                alert.setContentText("Please add a Division.");
+                alert.setTitle((languageBundle.getString("MutualEmptyDivisionFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualEmptyDivisionFieldText")));
                 alert.showAndWait();
                 break;
 
             case 7: // empty division
-                alert.setTitle("Null Division Box");
-                alert.setContentText("Either there is no Divisions in the database or a null error has occurred.");
+                alert.setTitle((languageBundle.getString("MutualNullDivisionFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualNullDivisionFieldText")));
                 alert.showAndWait();
                 break;
         }
@@ -122,62 +122,62 @@ public abstract class errorMessages implements Initializable {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         switch (codes) {
             case 0:
-                alert.setTitle("One or more invalid fields");
-                alert.setContentText("One or more invalid fields, please check them over and try again.");
+                alert.setTitle((languageBundle.getString("MutualOneOrMoreInvalidFieldsTitle")));
+                alert.setContentText((languageBundle.getString("MutualOneOrMoreInvalidFieldsText")));
                 alert.showAndWait();
                 break;
 
             case 1: // empty first name
-                alert.setTitle("Empty First Name Field");
-                alert.setContentText("Please add a First Name.");
+                alert.setTitle((languageBundle.getString("EmployeeEmptyFirstNameFieldTitle")));
+                alert.setContentText((languageBundle.getString("EmployeeEmptyFirstNameFieldText")));
                 alert.showAndWait();
                 break;
 
             case 2: // empty last name
-                alert.setTitle("Empty Last Name Field");
-                alert.setContentText("Please add a Last Name.");
+                alert.setTitle((languageBundle.getString("EmployeeEmptyLastNameFieldTitle")));
+                alert.setContentText((languageBundle.getString("EmployeeEmptyLastNameFieldText")));
                 alert.showAndWait();
                 break;
 
             case 3: // empty address
-                alert.setTitle("Empty Address Field");
-                alert.setContentText("Please add an Address.");
+                alert.setTitle((languageBundle.getString("MutualEmptyAddressFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualEmptyAddressFieldText")));
                 alert.showAndWait();
                 break;
 
             case 4: // empty postal
-                alert.setTitle("Empty Postal Code Field");
-                alert.setContentText("Please add a Postal Code.");
+                alert.setTitle((languageBundle.getString("MutualEmptyPostalFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualEmptyPostalFieldText")));
                 alert.showAndWait();
                 break;
 
             case 5: // empty phone
-                alert.setTitle("Empty Phone Number Field");
-                alert.setContentText("Please add a Phone number.");
+                alert.setTitle((languageBundle.getString("MutualEmptyPhoneNumberFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualEmptyPhoneNumberFieldText")));
                 alert.showAndWait();
                 break;
 
             case 6: // empty country
-                alert.setTitle("Empty Country Box");
-                alert.setContentText("Please add a Country.");
+                alert.setTitle((languageBundle.getString("MutualEmptyCountryFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualEmptyCountryFieldText")));
                 alert.showAndWait();
                 break;
 
             case 7: // empty division
-                alert.setTitle("Empty Division Box");
-                alert.setContentText("Please add a Division.");
+                alert.setTitle((languageBundle.getString("MutualEmptyDivisionFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualEmptyDivisionFieldText")));
                 alert.showAndWait();
                 break;
 
             case 8: // empty division
-                alert.setTitle("Null Division Box");
-                alert.setContentText("Either there is no Divisions in the database or a null error has occurred.");
+                alert.setTitle((languageBundle.getString("MutualNullDivisionFieldTitle")));
+                alert.setContentText((languageBundle.getString("MutualNullDivisionFieldText")));
                 alert.showAndWait();
                 break;
 
             case 9: // empty store
-                alert.setTitle("Empty Store Field");
-                alert.setContentText("Please add an associated store to this employee.");
+                alert.setTitle((languageBundle.getString("EmployeeEmptyStoreFieldTitle")));
+                alert.setContentText((languageBundle.getString("EmployeeEmptyStoreFieldText")));
                 alert.showAndWait();
                 break;
         }

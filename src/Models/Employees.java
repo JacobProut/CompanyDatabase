@@ -38,6 +38,21 @@ public class Employees {
         this.storeId = storeId;
     }
 
+    //used in modifying employee
+    public Employees(int employeeId, String employeeFirstName, String employeeLastName, String employeeAddress, String employeePostalCode, String employeePhoneNumber, int divisionId, LocalDateTime lastUpdated, String lastUpdatedBy, int storeId, int countryId) {
+        this.employeeId = employeeId;
+        this.employeeFirstName = employeeFirstName;
+        this.employeeLastName = employeeLastName;
+        this.employeeAddress = employeeAddress;
+        this.employeePostalCode = employeePostalCode;
+        this.employeePhoneNumber = employeePhoneNumber;
+        this.lastUpdated = lastUpdated;
+        this.lastUpdatedBy = lastUpdatedBy;
+        this.divisionId = divisionId;
+        this.countryId = countryId;
+        this.storeId = storeId;
+    }
+
     //Will be used for EmployeeDAO.getAllEmployeesById(int)
     public Employees(int collectedId, String collectedName) {
         this.employeeId = collectedId;

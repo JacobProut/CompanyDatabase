@@ -71,4 +71,28 @@ public class EmployeesDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public static void updateEmployee(int employeeId, String firstName, String lastName, String address, String postalCode, String phoneNumber, int divisionId, LocalDateTime lastUpdated, String lastUpdatedBy, int storeId) throws SQLException {
+        try {
+            String updateEmployee = "UPDATE employees SET First_Name = ?, Last_Name = ?, Address = ?, Postal_Code = ?, Phone = ?, Division_ID = ?, Last_Update = ?, Last_Updated_By = ?, Store_ID = ? WHERE Employee_ID = ?";
+            PreparedStatement updateEmployeeToDB = createConnection().prepareStatement(updateEmployee);
+
+            updateEmployeeToDB.setString(1, firstName);
+            updateEmployeeToDB.setString(2, lastName);
+            updateEmployeeToDB.setString(3, address);
+            updateEmployeeToDB.setString(4, postalCode);
+            updateEmployeeToDB.setString(5, phoneNumber);
+            updateEmployeeToDB.setInt(6, divisionId);
+            updateEmployeeToDB.setTimestamp(7, Timestamp.valueOf(lastUpdated));
+            updateEmployeeToDB.setString(8, lastUpdatedBy);
+            updateEmployeeToDB.setInt(9, storeId);
+            updateEmployeeToDB.setInt(10, employeeId);
+
+            updateEmployeeToDB.executeUpdate();
+        }
+        catch (SQLException e) {
+            System.out.println("Error with UPDATING Employee");
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -32,7 +32,7 @@ import static java.lang.Thread.sleep;
 import static javafx.scene.control.Alert.AlertType.CONFIRMATION;
 import static javafx.scene.control.ButtonType.CANCEL;
 import static javafx.scene.control.ButtonType.OK;
-import static utility.errorMessages.errorCode;
+import static utility.errorMessages.customerViewListErrorCodes;
 
 /**
  * customerMenuController is the Customer View List Form
@@ -196,7 +196,7 @@ public class customerMenuController implements Initializable {
     @FXML void onActionUpdateCustomer(ActionEvent event) throws IOException {
 
        if (customerTableView.getSelectionModel().isEmpty()) {
-           errorCode(5);
+           customerViewListErrorCodes(1);
            System.out.println("Null Selection while trying to Update a Customer.");
        }
        else {

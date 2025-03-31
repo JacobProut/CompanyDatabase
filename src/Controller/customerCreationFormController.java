@@ -21,7 +21,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static utility.errorMessages.errorCode;
+import static utility.errorMessages.customerCreationAndUpdateErrorCodes;
 
 public class customerCreationFormController implements Initializable {
     Parent scene;
@@ -114,30 +114,30 @@ public class customerCreationFormController implements Initializable {
      */
     public boolean createCustomerValidation() {
         if (creationCustomerName.getText().isEmpty() && creationCustomerAddress.getText().isEmpty() && creationCustomerPostalCode.getText().isEmpty() && creationCustomerPhoneNumber.getText().isEmpty() && countryPicker.getSelectionModel().isEmpty() && divisionPicker.getSelectionModel().isEmpty()) {
-            errorCode(5);
+            customerCreationAndUpdateErrorCodes(0);
             return false;
         } else if (creationCustomerName.getText().isBlank() || creationCustomerName.getText().isEmpty()) {
-            errorCode(6);
+            customerCreationAndUpdateErrorCodes(1);
             return false;
         } else if (creationCustomerAddress.getText().isBlank() || creationCustomerAddress.getText().isEmpty()) {
-            errorCode(7);
+            customerCreationAndUpdateErrorCodes(2);
             return false;
         } else if (creationCustomerPostalCode.getText().isBlank() || creationCustomerPostalCode.getText().isEmpty()) {
-            errorCode(8);
+            customerCreationAndUpdateErrorCodes(3);
             return false;
         } else if (creationCustomerPhoneNumber.getText().isBlank() || creationCustomerPhoneNumber.getText().isEmpty()) {
-            errorCode(9);
+            customerCreationAndUpdateErrorCodes(4);
             return false;
         } else if (countryPicker.getSelectionModel().isEmpty()) {
-            errorCode(10);
+            customerCreationAndUpdateErrorCodes(5);
             return false;
         } else if (divisionPicker.getSelectionModel().isEmpty()) {
-            errorCode(11);
+            customerCreationAndUpdateErrorCodes(6);
             return false;
         } else if (divisionPicker.getValue() == null) {
             Countries countries = countryPicker.getValue();
             if (countries == null) {
-                errorCode(12);
+                customerCreationAndUpdateErrorCodes(7);
                 return false;
             }
         }

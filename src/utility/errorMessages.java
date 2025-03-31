@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 public abstract class errorMessages implements Initializable {
     static ResourceBundle languageBundle = ResourceBundle.getBundle("LanguageBundle/language");
 
-    public static void errorCode(int codes) {
+    public static void loginErrorCodes(int codes) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
             switch (codes) {
                 case 1: //Empty username field
@@ -37,17 +37,88 @@ public abstract class errorMessages implements Initializable {
                     alert.setContentText(languageBundle.getString("EmptyUsernPass"));
                     alert.showAndWait();
                     break;
-
-                case 5:
-                    alert.setTitle((languageBundle.getString("NullSelectionWhileTryingToUpdateCustomer")));
-                    alert.setContentText(languageBundle.getString("NullSelectionWhileTryingToUpdateCustomerText"));
-                    alert.showAndWait();
-                    break;
+                //FINISH ERROR CODES
             }
     }
 
+    public static void customerViewListErrorCodes(int codes) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        switch (codes) {
+            case 1:
+                alert.setTitle((languageBundle.getString("NullSelectionWhileTryingToUpdateCustomer")));
+                alert.setContentText(languageBundle.getString("NullSelectionWhileTryingToUpdateCustomerText"));
+                alert.showAndWait();
+                break;
+        }
+    }
     //ADD THIS TO LANGUAGEBUNDLES
-    public static void employeeCreationErrorCodes(int codes) {
+    public static void customerCreationAndUpdateErrorCodes(int codes) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        switch (codes) {
+            case 0:
+                alert.setTitle("One or more invalid fields");
+                alert.setContentText("One or more invalid fields, please check them over and try again.");
+                alert.showAndWait();
+                break;
+
+            case 1: // empty name
+                alert.setTitle("Empty Name Field");
+                alert.setContentText("Please add a Name.");
+                alert.showAndWait();
+                break;
+
+            case 2: // empty address
+                alert.setTitle("Empty Address Field");
+                alert.setContentText("Please add an Address.");
+                alert.showAndWait();
+                break;
+
+            case 3: // empty postal
+                alert.setTitle("Empty Postal Code Field");
+                alert.setContentText("Please add a Postal Code.");
+                alert.showAndWait();
+                break;
+
+            case 4: // empty phone
+                alert.setTitle("Empty Phone Number Field");
+                alert.setContentText("Please add a Phone number.");
+                alert.showAndWait();
+                break;
+
+            case 5: // empty country
+                alert.setTitle("Empty Country Box");
+                alert.setContentText("Please add a Country.");
+                alert.showAndWait();
+                break;
+
+            case 6: // empty division
+                alert.setTitle("Empty Division Box");
+                alert.setContentText("Please add a Division.");
+                alert.showAndWait();
+                break;
+
+            case 7: // empty division
+                alert.setTitle("Null Division Box");
+                alert.setContentText("Either there is no Divisions in the database or a null error has occurred.");
+                alert.showAndWait();
+                break;
+        }
+    }
+
+
+
+    public static void employeeViewListErrorCodes(int codes) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        switch (codes) {
+            case 1:
+                alert.setTitle((languageBundle.getString("NullSelectionWhileTryingToUpdateEmployee")));
+                alert.setContentText(languageBundle.getString("NullSelectionWhileTryingToUpdateEmployeeText"));
+                alert.showAndWait();
+                break;
+        }
+    }
+    //ADD THIS TO LANGUAGEBUNDLES
+    public static void employeeCreationAndUpdateErrorCodes(int codes) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         switch (codes) {
             case 0:
@@ -100,7 +171,7 @@ public abstract class errorMessages implements Initializable {
 
             case 8: // empty division
                 alert.setTitle("Null Division Box");
-                alert.setContentText("Either ther is no Divisions in the database or a null error has occured.");
+                alert.setContentText("Either there is no Divisions in the database or a null error has occurred.");
                 alert.showAndWait();
                 break;
 

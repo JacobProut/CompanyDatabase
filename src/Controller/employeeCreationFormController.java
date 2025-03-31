@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static utility.errorMessages.employeeCreationErrorCodes;
+import static utility.errorMessages.employeeCreationAndUpdateErrorCodes;
 
 public class employeeCreationFormController implements Initializable {
 
@@ -46,6 +46,10 @@ public class employeeCreationFormController implements Initializable {
     @FXML void onActionCountryPicker(ActionEvent event) {
         Countries list = countryPicker.getValue();
         divisionPicker.setItems(First_Level_DivisionsDAO.countryToDivision(list.getCountryId()));
+
+    }
+
+    @FXML void onActionDivisionPicker(ActionEvent event) {
 
     }
 
@@ -74,9 +78,6 @@ public class employeeCreationFormController implements Initializable {
         }
     }
 
-    @FXML void onActionDivisionPicker(ActionEvent event) {
-
-    }
 
     @FXML void onActionReturn(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -104,41 +105,40 @@ public class employeeCreationFormController implements Initializable {
 
     public boolean createEmployeeValidation() {
         if (employeeFirstName.getText().isEmpty() && employeeLastName.getText().isEmpty() && employeeAddress.getText().isEmpty() && employeePostalCode.getText().isEmpty() && employeePhoneNumber.getText().isEmpty() && countryPicker.getSelectionModel().isEmpty() && divisionPicker.getSelectionModel().isEmpty() && storeLocation.getSelectionModel().isEmpty()) {
-            employeeCreationErrorCodes(0);
+            employeeCreationAndUpdateErrorCodes(0);
             return false;
         } else if (employeeFirstName.getText().isBlank() || employeeFirstName.getText().isEmpty()) {
-            employeeCreationErrorCodes(1);
+            employeeCreationAndUpdateErrorCodes(1);
             return false;
         }
         else if (employeeLastName.getText().isBlank() || employeeLastName.getText().isEmpty()) {
-            employeeCreationErrorCodes(2);
+            employeeCreationAndUpdateErrorCodes(2);
             return false;
         } else if (employeeAddress.getText().isBlank() || employeeAddress.getText().isEmpty()) {
-            employeeCreationErrorCodes(3);
+            employeeCreationAndUpdateErrorCodes(3);
             return false;
         } else if (employeePostalCode.getText().isBlank() || employeePostalCode.getText().isEmpty()) {
-            employeeCreationErrorCodes(4);
+            employeeCreationAndUpdateErrorCodes(4);
             return false;
         } else if (employeePhoneNumber.getText().isBlank() || employeePhoneNumber.getText().isEmpty()) {
-            employeeCreationErrorCodes(5);
+            employeeCreationAndUpdateErrorCodes(5);
             return false;
         } else if (countryPicker.getSelectionModel().isEmpty()) {
-            employeeCreationErrorCodes(6);
+            employeeCreationAndUpdateErrorCodes(6);
             return false;
         } else if (divisionPicker.getSelectionModel().isEmpty()) {
-            employeeCreationErrorCodes(7);
+            employeeCreationAndUpdateErrorCodes(7);
             return false;
         } else if (divisionPicker.getValue() == null) {
             Countries countries = countryPicker.getValue();
             if (countries == null) {
-                employeeCreationErrorCodes(8);
+                employeeCreationAndUpdateErrorCodes(8);
                 return false;
             }
         } else if (storeLocation.getSelectionModel().isEmpty()) {
-            employeeCreationErrorCodes(9);
+            employeeCreationAndUpdateErrorCodes(9);
             return false;
         }
-
         return true;
     }
 }

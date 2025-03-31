@@ -8,7 +8,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -24,7 +27,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static utility.errorMessages.errorCode;
+import static utility.errorMessages.loginErrorCodes;
 
 /**
  * loginScreenForm is the first form that loads up before the Appointment Scheduler Application Form.
@@ -73,25 +76,25 @@ public class loginScreenForm implements Initializable {
 
     public Boolean loginInfoValidation() throws SQLException, IOException {
         if (usernameField.getText().isBlank() && passwordField.getText().isEmpty()) {
-            errorCode(4);
+            loginErrorCodes(1);
             System.out.println("Failed Login Attempt: Blank User/Password");
             isLoginTrue = false;
             timesAttemptedToLogin();
             return false;
         } else if (usernameField.getText().isBlank() || usernameField.getText().isEmpty()) {
-            errorCode(1);
+            loginErrorCodes(2);
             System.out.println("Failed Login Attempt: Blank or incorrect Username");
             isLoginTrue = false;
             timesAttemptedToLogin();
             return false;
         } else if (passwordField.getText().isBlank() || passwordField.getText().isEmpty()) {
-            errorCode(2);
+            loginErrorCodes(3);
             System.out.println("Failed Login Attempt: Blank or incorrect Password");
             isLoginTrue = false;
             timesAttemptedToLogin();
             return false;
         } else if (!UsersDAO.verifyLoginInformation(usernameField.getText(), passwordField.getText())) {
-            errorCode(3);
+            loginErrorCodes(4);
             System.out.println("Failed Login Attempt: Incorrect username or password");
             isLoginTrue = false;
             timesAttemptedToLogin();

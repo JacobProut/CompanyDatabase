@@ -29,6 +29,7 @@ import static java.lang.Thread.sleep;
 import static javafx.scene.control.Alert.AlertType.CONFIRMATION;
 import static javafx.scene.control.ButtonType.CANCEL;
 import static javafx.scene.control.ButtonType.OK;
+import static utility.errorMessages.employeeViewListErrorCodes;
 
 public class employeeMenuController implements Initializable {
     Stage stage;
@@ -78,7 +79,7 @@ public class employeeMenuController implements Initializable {
 
     @FXML void editEmployeeButton(ActionEvent event) throws IOException {
         if (employeeTableView.getSelectionModel().isEmpty()) {
-           // errorCode(5);
+            employeeViewListErrorCodes(1);
             System.out.println("Null Selection while trying to Update a Employee.");
         }
         else {
@@ -91,8 +92,8 @@ public class employeeMenuController implements Initializable {
             stage.setScene(new Scene(scene));
             stage.show();
             stage.centerOnScreen();
-            stage.setTitle("Customer Modification Page");
-            System.out.println("Switching to Customer Modification Form.");
+            stage.setTitle("Employee Modification Form");
+            System.out.println("Switching to Employee Modification Form.");
         }
     }
 

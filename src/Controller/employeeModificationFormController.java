@@ -22,7 +22,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static utility.errorMessages.employeeCreationErrorCodes;
+import static utility.errorMessages.employeeCreationAndUpdateErrorCodes;
 
 public class employeeModificationFormController implements Initializable {
     Parent scene;
@@ -128,46 +128,43 @@ public class employeeModificationFormController implements Initializable {
         countryPicker.setValue(selectedCountryId);
         Countries selectedCountryNDiv = countryPicker.getValue();
         divisionPicker.setItems(First_Level_DivisionsDAO.countryToDivision(selectedCountryNDiv.getCountryId()));
-
-        //FIX THIS SO IT SHOWS UP
         Stores selectedStoreId = StoresDAO.getSelectedEmployeeStore(selectedEmployee.getStoreId());
         storesComboBox.setValue(selectedStoreId);
     }
 
     public boolean createEmployeeValidation() {
         if (employeeFirstName.getText().isEmpty() && employeeLastName.getText().isEmpty() && employeeAddress.getText().isEmpty() && employeePostalCode.getText().isEmpty() && employeePhoneNumber.getText().isEmpty() && countryPicker.getSelectionModel().isEmpty() && divisionPicker.getSelectionModel().isEmpty() && storesComboBox.getSelectionModel().isEmpty()) {
-            employeeCreationErrorCodes(0);
+            employeeCreationAndUpdateErrorCodes(0);
             return false;
         } else if (employeeFirstName.getText().isBlank() || employeeFirstName.getText().isEmpty()) {
-            employeeCreationErrorCodes(1);
+            employeeCreationAndUpdateErrorCodes(1);
             return false;
-        }
-        else if (employeeLastName.getText().isBlank() || employeeLastName.getText().isEmpty()) {
-            employeeCreationErrorCodes(2);
+        } else if (employeeLastName.getText().isBlank() || employeeLastName.getText().isEmpty()) {
+            employeeCreationAndUpdateErrorCodes(2);
             return false;
         } else if (employeeAddress.getText().isBlank() || employeeAddress.getText().isEmpty()) {
-            employeeCreationErrorCodes(3);
+            employeeCreationAndUpdateErrorCodes(3);
             return false;
         } else if (employeePostalCode.getText().isBlank() || employeePostalCode.getText().isEmpty()) {
-            employeeCreationErrorCodes(4);
+            employeeCreationAndUpdateErrorCodes(4);
             return false;
         } else if (employeePhoneNumber.getText().isBlank() || employeePhoneNumber.getText().isEmpty()) {
-            employeeCreationErrorCodes(5);
+            employeeCreationAndUpdateErrorCodes(5);
             return false;
         } else if (countryPicker.getValue() == null) {
-            employeeCreationErrorCodes(6);
+            employeeCreationAndUpdateErrorCodes(6);
             return false;
         } else if (divisionPicker.getValue() == null) {
-            employeeCreationErrorCodes(7);
+            employeeCreationAndUpdateErrorCodes(7);
             return false;
         } else if (divisionPicker.getValue() == null) {
             Countries countries = countryPicker.getValue();
             if (countries == null) {
-                employeeCreationErrorCodes(8);
+                employeeCreationAndUpdateErrorCodes(8);
                 return false;
             }
         } else if (storesComboBox.getValue() == null) {
-            employeeCreationErrorCodes(9);
+            employeeCreationAndUpdateErrorCodes(9);
             return false;
         }
         return true;

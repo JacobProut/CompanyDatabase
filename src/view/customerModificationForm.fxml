@@ -57,7 +57,7 @@
             </font>
         </Label>
         <TextField fx:id="modificationCustomerID" editable="false" promptText="Disabled: Auto-Generated"
-                   GridPane.columnIndex="1"/>
+                   GridPane.columnIndex="1" focusTraversable="false"/>
         <TextField fx:id="modificationCustomerName" prefHeight="25.0" prefWidth="135.0" GridPane.columnIndex="1"
                    GridPane.rowIndex="1"/>
         <TextField fx:id="modificationCustomerAddress" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
